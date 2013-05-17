@@ -3,11 +3,11 @@ require_once('php_helper_class_library/class.biNu.php');
 
 // Assign application configuration variables during constructor
 $app_config = array (
-	'dev_id' => 999999,								// Your DevCentral developer ID goes here
-	'app_id' => 999999,								// Your DevCentral application ID goes here
-	'app_name' => 'My First biNu App',				// Your application name goes here
-	'app_home' => 'http://localhost/binu/murphyslaws/',	// Publically accessible URI
-	'ttl' => 1										// Your page "time to live" parameter here
+	'dev_id' => 17768,								// Your DevCentral developer ID goes here
+	'app_id' => 4699,								// Your DevCentral application ID goes here
+	'app_name' => 'Murphy\'s Laws',				// Your application name goes here
+	'app_home' => 'http://binu-murphyslaws.azurewebsites.net/',	// Publically accessible URI
+	'ttl' => 300										// Your page "time to live" parameter here
 );
 
 try {
