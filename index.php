@@ -7,20 +7,20 @@ $app_config = array (
 	'app_id' => 4699,								// Your DevCentral application ID goes here
 	'app_name' => 'Murphy\'s Laws',				// Your application name goes here
 	'app_home' => 'http://binu-murphyslaws.azurewebsites.net/',	// Publically accessible URI
-	'ttl' => 300										// Your page "time to live" parameter here
+	'ttl' => 1										// Your page "time to live" parameter here
 );
 
 try {
 	// Construct biNu object
 	$binu_app = new biNu_app($app_config);
 
-	///if (TESTING) {
+	if (TESTING) {
 		// Show test info
-	///	add_test_info();
+		add_test_info();
 
 		/* Override TTL for testing purposes */
-	///	$binu_app->time_to_live = 1;
-	///}
+		$binu_app->time_to_live = 1;
+	}
 	
 	
 	$binu_app->add_style( array('name' => 'body_text', 'color' => '#1540eb') );
