@@ -14,7 +14,7 @@ try {
 	// Construct biNu object
 	$binu_app = new biNu_app($app_config);
 
-	global $$binu_app;
+	global $binu_app;
 	$binu_app->add_text('Your device id is :'.$binu_app->device_id, 'body');
 	$binu_app->add_text('Your Width is :'.$binu_app->screen_width, 'body');
 	$binu_app->add_text('Your Height is :'.$binu_app->screen_height, 'body');
