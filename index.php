@@ -13,12 +13,6 @@ $app_config = array (
 try {
 	// Construct biNu object
 	$binu_app = new biNu_app($app_config);
-
-	global $binu_app;
-	$binu_app->add_text('Your device id is :'.$binu_app->device_id, 'body');
-	$binu_app->add_text('Your Width is :'.$binu_app->screen_width, 'body');
-	$binu_app->add_text('Your Height is :'.$binu_app->screen_height, 'body');
-	$binu_app->add_text('Your Orientation is :'.$binu_app->orientation, 'body');
 	
 	$binu_app->time_to_live = 1;
 	
@@ -26,6 +20,13 @@ try {
 	
 	$binu_app->add_style( array('name' => 'body_text', 'color' => '#1540eb') );
 	$binu_app->add_text('Hello world', 'body_text');
+	$binu_app->add_list_item('Hello World 1', 'body_text');
+	$binu_app->add_list_item('Hello World 2', 'body_text');
+	$binu_app->add_list_item('Hello World 3', 'body_text');
+	$binu_app->add_list_item('Hello World 4', 'body_text');
+	$binu_app->add_list_item('Hello World 5', 'body_text');
+	$binu_app->add_list_item('Hello World 6', 'body_text');
+	
 
 	/* Process menu options */
 	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
