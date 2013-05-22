@@ -1,5 +1,38 @@
 <?php
 require_once('php_helper_class_library/class.biNu.php');
+require_once("inc/config.php");
+if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0)) 
+	{
+		header("Location: ".$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF'])."error.php?mxit_transaction_res=".$_GET['mxit_transaction_res'] );
+	}
+	
+	//We want to pick 10 categories at a time
+	$maxRows_categoryRecordset = 10;
+	$pageNum_categoryRecordset = 0;
+	if (isset($_GET['pageNum_categoryRecordset'])) 
+	{
+  		$pageNum_categoryRecordset = $_GET['pageNum_categoryRecordset'];
+	}
+	$startRow_categoryRecordset = $pageNum_categoryRecordset * $maxRows_categoryRecordset;
+
+	mysql_select_db($database_mxit_murphyslaws, $mxit_murphyslaws);
+	$query_categoryRecordset = "SELECT * FROM category ORDER BY category_id ASC";
+	$query_limit_categoryRecordset = sprintf("%s LIMIT %d, %d", $query_categoryRecordset, $startRow_categoryRecordset, 							$maxRows_categoryRecordset);
+	$categoryRecordset = mysql_query($query_limit_categoryRecordset, $mxit_murphyslaws) or die(mysql_error());
+	$row_categoryRecordset = mysql_fetch_assoc($categoryRecordset);
+
+	if (isset($_GET['totalRows_categoryRecordset'])) 
+	{
+  		$totalRows_categoryRecordset = $_GET['totalRows_categoryRecordset'];
+	} else 
+	{
+	  $all_categoryRecordset = mysql_query($query_categoryRecordset);
+	  $totalRows_categoryRecordset = mysql_num_rows($all_categoryRecordset);
+	}
+	$totalPages_categoryRecordset = ceil($totalRows_categoryRecordset/$maxRows_categoryRecordset)-1;
+?>
+
+<?php
 
 // Assign application configuration variables during constructor
 $app_config = array (
@@ -18,7 +51,7 @@ try {
 	
 	
 	
-	$binu_app->add_style( array('name' => 'light_blue', 'color' => '#1540eb') );
+	$binu_app->add_style( array('name' => 'light_blue', 'color' => '#1540eb', 'size' => '20') );
 	$binu_app->add_style( array('name' => 'red', 'color' => '#FF0000') );
 	$binu_app->add_style( array('name' => 'blue', 'color' => '#0000FF') );
 	
@@ -26,6 +59,7 @@ try {
 	$binu_app->add_text("Hello World Red",'red');
 	$binu_app->add_text("Hello World Blue",'blue');
 	
+	$binu_app->add_header('Murphy\'s Laws '.$catIDBuffer,'light_blue');
 	//$binu_app->add_footer('Hello world footer', 'body_text');
 
 	/* Process menu options */
