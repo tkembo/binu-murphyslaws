@@ -18,16 +18,15 @@ try {
 	
 	
 	
-	$binu_app->add_style( array('name' => 'body_text', 'color' => '#1540eb') );
+	$binu_app->add_style( array('name' => 'light_blue', 'color' => '#1540eb') );
+	$binu_app->add_style( array('name' => 'red', 'color' => '#FF0000') );
+	$binu_app->add_style( array('name' => 'blue', 'color' => '#0000FF') );
 	
-	$binu_app->add_list_item('Hello World 1', 'body_text');
-	$binu_app->add_list_item('Hello World 2', 'body_text');
-	$binu_app->add_list_item('Hello World 3', 'body_text');
-	$binu_app->add_list_item('Hello World 4', 'body_text');
-	$binu_app->add_list_item('Hello World 5', 'body_text');
-	$binu_app->add_list_item('Hello World 6', 'body_text');
+	//$binu_app->add_list_item('Hello World 1', 'body_text');
+	$binu_app->add_text("Hello World Red",'red');
+	$binu_app->add_text("Hello World Blue",'blue');
 	
-	$binu_app->add_text('Hello world', 'body_text');
+	//$binu_app->add_footer('Hello world footer', 'body_text');
 
 	/* Process menu options */
 	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
