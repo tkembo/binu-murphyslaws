@@ -19,7 +19,7 @@
 	*/
 	
 	$hostname_mxit_murphyslaws = "localhost";
-	$database_mxit_murphyslaws = "mxit_murphyslaws";
+	$database_mxit_murphyslaws = "mxitmurphyslaws";
 	$username_mxit_murphyslaws = "root";
 	$password_mxit_murphyslaws = "";
 	
