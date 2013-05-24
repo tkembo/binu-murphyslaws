@@ -60,7 +60,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	  $all_quoteRecordset = mysql_query($query_quoteRecordset);
 	  $totalRows_quoteRecordset = mysql_num_rows($all_quoteRecordset);
 	}
-	$totalPages_quoteRecordset = ceil($totalRows_quoteRecordset/$maxRows_quoteRecordset)-1;$maxRows_quoteRecordset = 10;
+	$totalPages_quoteRecordset = ceil($totalRows_quoteRecordset/$maxRows_quoteRecordset)-1;$maxRows_quoteRecordset = 6;
 	$pageNum_quoteRecordset = 0;
 	if (isset($_GET['pageNum_quoteRecordset'])) {
 	  $pageNum_quoteRecordset = $_GET['pageNum_quoteRecordset'];
@@ -110,13 +110,13 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
 
 	/* Process menu options */
-	$binu_app->add_menu_item( '11', 'Category Listing', "index.php"  );
+	$binu_app->add_menu_item( '7', 'Category Listing', "index.php"  );
 	$next_page = $_GET['pageNum_quoteRecordset'] + 1;
 	if ($totalPages_quoteRecordset >= ($next_page+1)){
 		$binu_app->add_menu_item( '12', "See 10 more ".$row_categoryNameRecordset['category'], "quotes.php?pageNum_quoteRecordset=".$next_page."&id=".$_GET['id']);	
 	}
-	$binu_app->add_menu_item( '13', 'My App Home', $binu_app->application_URL  );
-	$binu_app->add_menu_item( '14', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
+	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
+	$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
 
 	/* Show biNu page */
 	$binu_app->generate_BML();

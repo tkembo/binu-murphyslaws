@@ -38,7 +38,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	}
 	
 	//We want to pick 10 categories at a time
-	$maxRows_categoryRecordset = 10;
+	$maxRows_categoryRecordset = 6;
 	$pageNum_categoryRecordset = 0;
 	if (isset($_GET['pageNum_categoryRecordset'])) 
 	{
@@ -80,23 +80,23 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 				$prevPage = $pageNum_categoryRecordset - 1;
 			  	if ($catIDBuffer < $totalRows_categoryRecordset)
 				{
-					$binu_app->add_menu_item( '11', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
-					$binu_app->add_menu_item( '12', 'Previous Page', "./?pageNum_categoryRecordset=".$prevPage );
+					$binu_app->add_menu_item( '7', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
+					$binu_app->add_menu_item( '8', 'Previous Page', "./?pageNum_categoryRecordset=".$prevPage );
 				}
 				if ($catIDBuffer == $totalRows_categoryRecordset)
 					{
-						$binu_app->add_menu_item( '12', 'Previous Page', "./?pageNum_categoryRecordset=".$prevPage );
+						$binu_app->add_menu_item( '9', 'Previous Page', "./?pageNum_categoryRecordset=".$prevPage );
 					}
 			}
 			else
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
-				$binu_app->add_menu_item( '11', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
+				$binu_app->add_menu_item( '7', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
 			}
 
 	/* Process menu options */
-	$binu_app->add_menu_item( '13', 'My App Home', $binu_app->application_URL  );
-	$binu_app->add_menu_item( '14', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
+	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
+	$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
 
 	/* Show biNu page */
 	$binu_app->generate_BML();
