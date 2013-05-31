@@ -18,10 +18,10 @@ try {
 	
 	
 	//Define Styles
-	$binu_app->add_style( array('name' => 'header', 'color' => '#1540eb', 'size' => '20') );
-	$binu_app->add_style( array('name' => 'intro', 'color' => '#FF0000') );
+	/////$binu_app->add_style( array('name' => 'header', 'color' => '#1540eb', 'size' => '20') );
+	/////$binu_app->add_style( array('name' => 'intro', 'color' => '#FF0000') );
 	$binu_app->add_style( array('name' => 'body_text', 'color' => '#0000FF') );
-	$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
+	/////$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
 	
 	$binu_app->add_header("Murphy's Laws",'header');
@@ -65,15 +65,18 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	
 	$catIDBuffer = -1;
 	
- do {
+ /////do {
+	 	
         $binu_app->add_text($row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
 		//$binu_app->add_action($row_categoryRecordset['category_id'],'Y',$row_categoryRecordset['category'],"quotes.php?pageNum_quoteRecordset=0&id=".$row_categoryRecordset['category_id'],'','');
 		
-	 } while ($row_categoryRecordset = mysql_fetch_assoc($categoryRecordset));
+	///// } /////while ($row_categoryRecordset = mysql_fetch_assoc($categoryRecordset));
+	 
 		
       
-	$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
+	/////$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
 	
+	/*
 	if (isset($_GET['pageNum_categoryRecordset']) && $_GET['pageNum_categoryRecordset'] >0 ) 
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
@@ -93,10 +96,13 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 				$nextPage = $pageNum_categoryRecordset + 1;
 				$binu_app->add_menu_item( '7', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
 			}
+			
+			*/
 
 	/* Process menu options */
-	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
-	$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
+	
+	/////$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
+	/////$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
 
 	/* Show biNu page */
 	$binu_app->generate_BML();
