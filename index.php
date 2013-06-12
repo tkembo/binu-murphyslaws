@@ -83,18 +83,19 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 				$prevPage = $pageNum_categoryRecordset - 1;
 			  	if ($catIDBuffer < $totalRows_categoryRecordset)
 				{
-					$binu_app->add_menu_item( '7', 'Next Page', "http://binu-murphyslaws.azurewebsites.net/?pageNum_categoryRecordset=".$nextPage  );
-					$binu_app->add_menu_item( '8', 'Previous Page', "http://binu-murphyslaws.azurewebsites.net/?pageNum_categoryRecordset=".$prevPage );
+					$binu_app->add_action( '7', '' , 'Next Page', "?pageNum_categoryRecordset=".$nextPage, '' ,"o" );
+					$binu_app->add_action( '8', '' , 'Previous Page', "?pageNum_categoryRecordset=".$prevPage, '' ,"o"  );
+					
 				}
 				if ($catIDBuffer == $totalRows_categoryRecordset)
 					{
-						$binu_app->add_menu_item( '9', 'Previous Page', ".http://binu-murphyslaws.azurewebsites.net/?pageNum_categoryRecordset=".$prevPage );
+						$binu_app->add_action( '9', 'Previous Page', "?pageNum_categoryRecordset=".$prevPage, '' ,"o"  );
 					}
 			}
 			else
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
-				$binu_app->add_menu_item( '7', 'Next Page', "http://binu-murphyslaws.azurewebsites.net/?pageNum_categoryRecordset=".$nextPage  );
+				$binu_app->add_action( '7',  '' ,'Next Page', "?pageNum_categoryRecordset=".$nextPage, '' ,"o"   );
 			}
 			
 			
