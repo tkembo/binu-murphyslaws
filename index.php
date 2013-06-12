@@ -76,7 +76,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
       
 	/////$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
 	
-	/*
+	
 	if (isset($_GET['pageNum_categoryRecordset']) && $_GET['pageNum_categoryRecordset'] >0 ) 
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
@@ -97,7 +97,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 				$binu_app->add_menu_item( '7', 'Next Page', "./?pageNum_categoryRecordset=".$nextPage  );
 			}
 			
-			*/
+			
 
 	/* Process menu options */
 	
