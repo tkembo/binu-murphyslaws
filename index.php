@@ -24,7 +24,7 @@ try {
 	/////$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
 	
-	$binu_app->add_header("Murphy's Laws",'header');
+	//$binu_app->add_header("Murphy's Laws",'header');
 	
 	$binu_app->add_text("Select Category",'intro');
 	
