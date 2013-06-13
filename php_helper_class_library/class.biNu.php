@@ -413,7 +413,7 @@ class biNu_app {
 	}
 	
 	public function add_link($URL = '', $text_string = '', $text_style = '', $text_align = 'left', $x_pos = '0', $y_pos = 'y', $mode = 'wrap' ) {
-		$this->text_area[] = $text_array = array (
+		$this->link_area[] = $link_array = array (
 			'link' => $URL,
 			'text' => $text_string,
 			'style' => $text_style,
@@ -430,6 +430,23 @@ class biNu_app {
 			$the_text_area .= '	<fixed>'.PHP_EOL;
 			foreach ($this->text_area as $text_section) {
 				$the_text_area .= '		<text x="'.$text_section['x'].'" y="'.$text_section['y'].'" w="width" mode="'.$text_section['mode'].'" align="'.$text_section['align'].'" style="'.$text_section['style'].'">'.trim($text_section['text']).'</text>'.PHP_EOL;
+			}
+			$the_text_area .= '	</fixed>'.PHP_EOL;
+			$the_text_area .= '</pageSegment>'.PHP_EOL;
+
+			return trim($the_text_area);
+		} else {
+			return '';
+		}
+
+	}
+	
+	private function get_link() {
+		if (count($this->link_area) > 0) {
+			$the_text_area = '<pageSegment y="y">'.PHP_EOL;
+			$the_text_area .= '	<fixed>'.PHP_EOL;
+			foreach ($this->link_area as $link_section) {
+				$the_text_area .= '		<link><text x="'.$text_section['x'].'" y="'.$text_section['y'].'" w="width" mode="'.$text_section['mode'].'" align="'.$text_section['align'].'" style="'.$text_section['style'].'">'.trim($text_section['text']).'</text><link>'.PHP_EOL;
 			}
 			$the_text_area .= '	</fixed>'.PHP_EOL;
 			$the_text_area .= '</pageSegment>'.PHP_EOL;
