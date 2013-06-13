@@ -412,24 +412,13 @@ class biNu_app {
 		);
 	}
 	
-	public function add_link($URL = '', $link_string = '', $link_style = '', $link_align = 'left', $x_pos = '0', $y_pos = 'y', $mode = 'wrap' ) {
-		$this->link_area[] = $link_array = array (
-			'link' => $URL,
-			'text' => $link_string,
-			'style' => $link_style,
-			'align' => $link_align,
-			'x' => $x_pos,
-			'y' => $y_pos,
-			'mode' => $mode
-		);
-	}
 
 	private function get_text() {
 		if (count($this->text_area) > 0) {
 			$the_text_area = '<pageSegment y="y">'.PHP_EOL;
 			$the_text_area .= '	<fixed>'.PHP_EOL;
 			foreach ($this->text_area as $text_section) {
-				$the_text_area .= '		<text x="'.$text_section['x'].'" y="'.$text_section['y'].'" w="width" mode="'.$text_section['mode'].'" align="'.$text_section['align'].'" style="'.$text_section['style'].'">'.trim($text_section['text']).'</text>'.PHP_EOL;
+				$the_text_area .= '		<link><text x="'.$text_section['x'].'" y="'.$text_section['y'].'" w="width" mode="'.$text_section['mode'].'" align="'.$text_section['align'].'" style="'.$text_section['style'].'">'.trim($text_section['text']).'</text></link>'.PHP_EOL;
 			}
 			$the_text_area .= '	</fixed>'.PHP_EOL;
 			$the_text_area .= '</pageSegment>'.PHP_EOL;
@@ -441,22 +430,6 @@ class biNu_app {
 
 	}
 	
-	private function get_link() {
-		if (count($this->link_area) > 0) {
-			$the_link_area = '<pageSegment y="y">'.PHP_EOL;
-			$the_link_area .= '	<fixed>'.PHP_EOL;
-			foreach ($this->link_area as $link_section) {
-				$the_link_area .= '		<link><text x="'.$link_section['x'].'" y="'.$link_section['y'].'" w="width" mode="'.$link_section['mode'].'" align="'.$link_section['align'].'" style="'.$link_section['style'].'">'.trim($link_section['link']).'</text><link>'.PHP_EOL;
-			}
-			$the_link_area .= '	</fixed>'.PHP_EOL;
-			$the_link_area .= '</pageSegment>'.PHP_EOL;
-
-			return trim($the_link_area);
-		} else {
-			return '';
-		}
-
-	}
 
 	public function add_list_item( $list_name, $item_id, $type = 'Field', $name, $value = '', $url = '' ) {
 		$this->list_items[$item_id][] = array(
