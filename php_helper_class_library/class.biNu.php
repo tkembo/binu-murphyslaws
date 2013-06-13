@@ -411,6 +411,18 @@ class biNu_app {
 			'mode' => $mode
 		);
 	}
+	
+	public function add_link($URL = '', $text_string = '', $text_style = '', $text_align = 'left', $x_pos = '0', $y_pos = 'y', $mode = 'wrap' ) {
+		$this->text_area[] = $text_array = array (
+			'link' => $URL,
+			'text' => $text_string,
+			'style' => $text_style,
+			'align' => $text_align,
+			'x' => $x_pos,
+			'y' => $y_pos,
+			'mode' => $mode
+		);
+	}
 
 	private function get_text() {
 		if (count($this->text_area) > 0) {
