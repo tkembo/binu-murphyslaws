@@ -67,8 +67,8 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	
  do 
 	 	{
-			
-			echo "<link url=\"quotes.php?pageNum_quoteRecordset=0&id=\"".$row_categoryRecordset['category_id']." x=\"5\" y=\"y\" mode=\"truncate\" style=\"body_text\" linkType=\"o\">";
+			echo "<link>";
+			//echo "<link url=\"quotes.php?pageNum_quoteRecordset=0&id=\"".$row_categoryRecordset['category_id']." x=\"5\" y=\"y\" mode=\"truncate\" style=\"body_text\" linkType=\"o\">";
 			$binu_app->add_text($row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
 			echo "</link>";
 		//$binu_app->add_action($row_categoryRecordset['category_id'],'Y',$row_categoryRecordset['category'],"quotes.php?pageNum_quoteRecordset=0&id=".$row_categoryRecordset['category_id'],'','');
