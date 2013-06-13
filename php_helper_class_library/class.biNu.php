@@ -451,9 +451,9 @@ class biNu_app {
 			$the_link_area = '<pageSegment y="y">'.PHP_EOL;
 			$the_link_area .= '	<fixed>'.PHP_EOL;
 			foreach ($this->link_area as $link_section) {
-				$the_link_area .= '		<link url="'.$link_section['url'].'" x="5" y="y+5" w="width" mode="truncate" style="'.$link_section['style'].'" linkType="o">'.PHP_EOL;
+				//$the_link_area .= '		<link url="'.$link_section['url'].'" x="5" y="y+5" w="width" mode="truncate" style="'.$link_section['style'].'" linkType="o">'.PHP_EOL;
 				$the_link_area .= '			<text  w="width-10" mode="wrap" style="'.$link_section['style'].'">'.$link_section['link'].'</text>'.PHP_EOL;		
-				$the_link_area .= '		</link>'.PHP_EOL;
+				//$the_link_area .= '		</link>'.PHP_EOL;
 			}
 			$the_link_area .= '	</fixed>'.PHP_EOL;
 			$the_link_area .= '</pageSegment>'.PHP_EOL;
