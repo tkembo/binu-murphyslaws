@@ -412,12 +412,12 @@ class biNu_app {
 		);
 	}
 	
-	public function add_link($URL = '', $text_string = '', $text_style = '', $text_align = 'left', $x_pos = '0', $y_pos = 'y', $mode = 'wrap' ) {
+	public function add_link($URL = '', $link_string = '', $link_style = '', $link_align = 'left', $x_pos = '0', $y_pos = 'y', $mode = 'wrap' ) {
 		$this->link_area[] = $link_array = array (
 			'link' => $URL,
-			'text' => $text_string,
-			'style' => $text_style,
-			'align' => $text_align,
+			'text' => $link_string,
+			'style' => $link_style,
+			'align' => $link_align,
 			'x' => $x_pos,
 			'y' => $y_pos,
 			'mode' => $mode
@@ -443,15 +443,15 @@ class biNu_app {
 	
 	private function get_link() {
 		if (count($this->link_area) > 0) {
-			$the_text_area = '<pageSegment y="y">'.PHP_EOL;
-			$the_text_area .= '	<fixed>'.PHP_EOL;
+			$the_link_area = '<pageSegment y="y">'.PHP_EOL;
+			$the_link_area .= '	<fixed>'.PHP_EOL;
 			foreach ($this->link_area as $link_section) {
-				$the_text_area .= '		<link><text x="'.$text_section['x'].'" y="'.$text_section['y'].'" w="width" mode="'.$text_section['mode'].'" align="'.$text_section['align'].'" style="'.$text_section['style'].'">'.trim($text_section['text']).'</text><link>'.PHP_EOL;
+				$the_link_area .= '		<link><text x="'.$link_section['x'].'" y="'.$link_section['y'].'" w="width" mode="'.$link_section['mode'].'" align="'.$link_section['align'].'" style="'.$link_section['style'].'">'.trim($link_section['link']).'</text><link>'.PHP_EOL;
 			}
-			$the_text_area .= '	</fixed>'.PHP_EOL;
-			$the_text_area .= '</pageSegment>'.PHP_EOL;
+			$the_link_area .= '	</fixed>'.PHP_EOL;
+			$the_link_area .= '</pageSegment>'.PHP_EOL;
 
-			return trim($the_text_area);
+			return trim($the_link_area);
 		} else {
 			return '';
 		}
@@ -666,6 +666,7 @@ class biNu_app {
 				$this->header_BML . PHP_EOL .
 				$this->body_BML . PHP_EOL .
 				$this->get_text() . PHP_EOL .
+				$this->get_link() . PHP_EOL .
 				$this->footer_BML . PHP_EOL .
 			'</page>' . PHP_EOL .
 				$this->get_actions() . PHP_EOL .
