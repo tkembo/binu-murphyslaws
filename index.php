@@ -38,7 +38,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	}
 	
 	//We want to pick 10 categories at a time
-	$maxRows_categoryRecordset = 10;
+	$maxRows_categoryRecordset = 50;
 	$pageNum_categoryRecordset = 0;
 	if (isset($_GET['pageNum_categoryRecordset'])) 
 	{
@@ -67,7 +67,10 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	
  do 
 	 	{
-        $binu_app->add_text($row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
+			
+			echo "<link url=\"quotes.php?pageNum_quoteRecordset=0&id=\"".$row_categoryRecordset['category_id']." x=\"5\" y=\"y\" mode=\"truncate\" style=\"body_text\" linkType=\"o\">";
+			$binu_app->add_text($row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
+			echo "</link>";
 		//$binu_app->add_action($row_categoryRecordset['category_id'],'Y',$row_categoryRecordset['category'],"quotes.php?pageNum_quoteRecordset=0&id=".$row_categoryRecordset['category_id'],'','');
 		
 	} while ($row_categoryRecordset = mysql_fetch_assoc($categoryRecordset));
