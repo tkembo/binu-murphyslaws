@@ -3,8 +3,8 @@ require_once('php_helper_class_library/class.biNu.php');
 require_once("inc/config.php");
 // Assign application configuration variables during constructor
 $app_config = array (
-	'dev_id' => 17768,								// Your DevCentral developer ID goes here
-	'app_id' => 4699,								// Your DevCentral application ID goes here
+	'dev_id' => getenv('DEV_ID'),								// Your DevCentral developer ID goes here
+	'app_id' => getenv('APP_ID'),								// Your DevCentral application ID goes here
 	'app_name' => 'Murphy\s Laws',				// Your application name goes here
 	'app_home' => 'http://binu-murphyslaws.azurewebsites.net/',	// Publically accessible URI
 	'ttl' => 1										// Your page "time to live" parameter here
@@ -14,7 +14,7 @@ try {
 	// Construct biNu object
 	$binu_app = new biNu_app($app_config);
 	
-	$binu_app->time_to_live = 1;
+	$binu_app->time_to_live = 60;
 	
 	
 	//Define Styles
@@ -67,20 +67,11 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	
  do 
 	 	{
-			//echo "<link>";
-			//echo "<link url=\"quotes.php?pageNum_quoteRecordset=0&id=\"".$row_categoryRecordset['category_id']." x=\"5\" y=\"y\" mode=\"truncate\" style=\"body_text\" linkType=\"o\">";
-			/////$binu_app->add_text($row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
-			//echo "</link>";
 			$binu_app->add_link("quotes.php?pageNum_quoteRecordset=0&amp;id=".$row_categoryRecordset['category_id'], $row_categoryRecordset['category_id'].") ".$row_categoryRecordset['category'],'body_text');
-			
-		//$binu_app->add_action($row_categoryRecordset['category_id'],'Y',$row_categoryRecordset['category'],"quotes.php?pageNum_quoteRecordset=0&id=".$row_categoryRecordset['category_id'],'','');
+
 		
 	} while ($row_categoryRecordset = mysql_fetch_assoc($categoryRecordset));
 	 
-	$binu_app->add_text("Options",'intro');	
-      
-	/////$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
-	
 	
 	if (isset($_GET['pageNum_categoryRecordset']) && $_GET['pageNum_categoryRecordset'] >0 ) 
 			{
@@ -88,29 +79,21 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 				$prevPage = $pageNum_categoryRecordset - 1;
 			  	if ($catIDBuffer < $totalRows_categoryRecordset)
 				{
-					$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "body_text");
-					$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "body_text");
+					$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "into");
+					$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "into");
 					
 				}
 				if ($catIDBuffer == $totalRows_categoryRecordset)
 					{
-						$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "body_text");
+						$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "into");
 					}
 			}
 			else
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
-				$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "body_text");
+				$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "intro");
 			}
 			
-		
-		
-
-	/* Process menu options */
-	
-	/////$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
-	/////$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
-
 	/* Show biNu page */
 	$binu_app->generate_BML();
 
