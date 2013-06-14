@@ -32,9 +32,9 @@ try {
 	
 	
 	
-if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0)) 
+if (isset($_GET['binu_transaction_res'])&&($_GET['binu_transaction_res']<>0)) 
 	{
-		header("Location: ".$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF'])."error.php?mxit_transaction_res=".$_GET['mxit_transaction_res'] );
+		header("Location: ".$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF'])."error.php?binu_transaction_res=".$_GET['binu_transaction_res'] );
 	}
 	
 	//We want to pick 10 categories at a time
@@ -46,10 +46,10 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	}
 	$startRow_categoryRecordset = $pageNum_categoryRecordset * $maxRows_categoryRecordset;
 
-	mysql_select_db($database_mxit_murphyslaws, $mxit_murphyslaws);
+	mysql_select_db($database_binu_murphyslaws, $binu_murphyslaws);
 	$query_categoryRecordset = "SELECT * FROM category ORDER BY category_id ASC";
 	$query_limit_categoryRecordset = sprintf("%s LIMIT %d, %d", $query_categoryRecordset, $startRow_categoryRecordset, 							$maxRows_categoryRecordset);
-	$categoryRecordset = mysql_query($query_limit_categoryRecordset, $mxit_murphyslaws) or die(mysql_error());
+	$categoryRecordset = mysql_query($query_limit_categoryRecordset, $binu_murphyslaws) or die(mysql_error());
 	$row_categoryRecordset = mysql_fetch_assoc($categoryRecordset);
 
 	if (isset($_GET['totalRows_categoryRecordset'])) 

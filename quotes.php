@@ -26,16 +26,18 @@ try {
 	$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
 	
-	$binu_app->add_header("Murphy's Laws",'header');
+	$binu_app->add_text("Murphy's Laws",'header');
+	
+	$binu_app->add_text("Select Category",'intro');
 	
 	
 	
 	 
 	
 	
-if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0)) 
+if (isset($_GET['binu_transaction_res'])&&($_GET['binu_transaction_res']<>0)) 
 	{
-		header("Location: ".$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF'])."error.php?mxit_transaction_res=".$_GET['mxit_transaction_res'] );
+		header("Location: ".$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF'])."error.php?binu_transaction_res=".$_GET['binu_transaction_res'] );
 	}
 
 	//We want to pick 10 quotqtions at a time
@@ -48,10 +50,10 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	}
 	$startRow_quoteRecordset = $pageNum_quoteRecordset * $maxRows_quoteRecordset;
 
-	mysql_select_db($database_mxit_murphyslaws, $mxit_murphyslaws);
+	mysql_select_db($database_binu_murphyslaws, $binu_murphyslaws);
 	$query_quoteRecordset = "SELECT * FROM quote ORDER BY quote_id ASC";
 	$query_limit_quoteRecordset = sprintf("%s LIMIT %d, %d", $query_quoteRecordset, $startRow_quoteRecordset, $maxRows_quoteRecordset);
-	$quoteRecordset = mysql_query($query_limit_quoteRecordset, $mxit_murphyslaws) or die(mysql_error());
+	$quoteRecordset = mysql_query($query_limit_quoteRecordset, $binu_murphyslaws) or die(mysql_error());
 	$row_quoteRecordset = mysql_fetch_assoc($quoteRecordset);
 
 	if (isset($_GET['totalRows_quoteRecordset'])) {
@@ -72,10 +74,10 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	if (isset($_GET['id'])) {
 	  $colname_quoteRecordset = $_GET['id'];
 	}
-	mysql_select_db($database_mxit_murphyslaws, $mxit_murphyslaws);
+	mysql_select_db($database_binu_murphyslaws, $binu_murphyslaws);
 	$query_quoteRecordset = sprintf("SELECT * FROM quote WHERE category_id = %s ORDER BY quote_id ASC", GetSQLValueString($colname_quoteRecordset, "int"));
 	$query_limit_quoteRecordset = sprintf("%s LIMIT %d, %d", $query_quoteRecordset, $startRow_quoteRecordset, $maxRows_quoteRecordset);
-	$quoteRecordset = mysql_query($query_limit_quoteRecordset, $mxit_murphyslaws) or die(mysql_error());
+	$quoteRecordset = mysql_query($query_limit_quoteRecordset, $binu_murphyslaws) or die(mysql_error());
 	$row_quoteRecordset = mysql_fetch_assoc($quoteRecordset);
 	
 	if (isset($_GET['totalRows_quoteRecordset'])) {
@@ -90,9 +92,9 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	if (isset($_GET['id'])) {
 	  $colname_categoryNameRecordset = $_GET['id'];
 	}
-	mysql_select_db($database_mxit_murphyslaws, $mxit_murphyslaws);
+	mysql_select_db($database_binu_murphyslaws, $binu_murphyslaws);
 	$query_categoryNameRecordset = sprintf("SELECT * FROM category WHERE category_id = %s", GetSQLValueString($colname_categoryNameRecordset, "int"));
-	$categoryNameRecordset = mysql_query($query_categoryNameRecordset, $mxit_murphyslaws) or die(mysql_error());
+	$categoryNameRecordset = mysql_query($query_categoryNameRecordset, $binu_murphyslaws) or die(mysql_error());
 	$row_categoryNameRecordset = mysql_fetch_assoc($categoryNameRecordset);
 	$totalRows_categoryNameRecordset = mysql_num_rows($categoryNameRecordset);
 	
