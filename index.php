@@ -24,7 +24,7 @@ try {
 	/////$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
 	
-	$binu_app->add_header("Murphy's Laws",'header');
+	$binu_app->add_text("Murphy's Laws",'header');
 	
 	$binu_app->add_text("Select Category",'intro');
 	
@@ -77,7 +77,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 		
 	} while ($row_categoryRecordset = mysql_fetch_assoc($categoryRecordset));
 	 
-		
+	$binu_app->add_text("Options",'intro');	
       
 	/////$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
 	
