@@ -18,13 +18,13 @@ try {
 	
 	
 	//Define Styles
-	/////$binu_app->add_style( array('name' => 'header', 'color' => '#1540eb', 'size' => '20') );
-	/////$binu_app->add_style( array('name' => 'intro', 'color' => '#FF0000') );
+	$binu_app->add_style( array('name' => 'header', 'color' => '#1540eb', 'size' => '20') );
+	$binu_app->add_style( array('name' => 'intro', 'color' => '#FF0000') );
 	$binu_app->add_style( array('name' => 'body_text', 'color' => '#0000FF') );
 	/////$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
 	
-	//$binu_app->add_header("Murphy's Laws",'header');
+	$binu_app->add_header("Murphy's Laws",'header');
 	
 	$binu_app->add_text("Select Category",'intro');
 	
