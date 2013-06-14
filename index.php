@@ -38,7 +38,7 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
 	}
 	
 	//We want to pick 10 categories at a time
-	$maxRows_categoryRecordset = 50;
+	$maxRows_categoryRecordset = 10;
 	$pageNum_categoryRecordset = 0;
 	if (isset($_GET['pageNum_categoryRecordset'])) 
 	{
@@ -81,30 +81,30 @@ if (isset($_GET['mxit_transaction_res'])&&($_GET['mxit_transaction_res']<>0))
       
 	/////$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
 	
-	/**
+	
 	if (isset($_GET['pageNum_categoryRecordset']) && $_GET['pageNum_categoryRecordset'] >0 ) 
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
 				$prevPage = $pageNum_categoryRecordset - 1;
 			  	if ($catIDBuffer < $totalRows_categoryRecordset)
 				{
-					$binu_app->add_action( '7', '' , 'Next Page', '?pageNum_categoryRecordset='.$nextPage, '' ,"o" );
-					$binu_app->add_action( '8', '' , 'Previous Page', "?pageNum_categoryRecordset=".$prevPage, '' ,"o"  );
+					$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "body_text");
+					$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "body_text");
 					
 				}
 				if ($catIDBuffer == $totalRows_categoryRecordset)
 					{
-						$binu_app->add_action( '9', '' , 'Previous Page', '?pageNum_categoryRecordset='.$prevPage, '' ,"o"  );
+						$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "body_text");
 					}
 			}
 			else
 			{
 				$nextPage = $pageNum_categoryRecordset + 1;
-				$binu_app->add_action( '7',  '' ,'Next Page', "?pageNum_categoryRecordset=".$nextPage, '' ,"o"   );
+				$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "body_text");
 			}
 			
-		**/
-		$binu_app->add_menu_item('7','Next Page', '?pageNum_categoryRecordset='.$nextPage);
+		
+		
 
 	/* Process menu options */
 	
