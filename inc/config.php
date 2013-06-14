@@ -1,6 +1,6 @@
 <?php
 	
-	$hostname_mxit_murphyslaws = getenv('DB_HOST');
+	$hostname_binu_murphyslaws = getenv('DB_HOST');
 	$database_binu_murphyslaws = getenv('DB_NAME');
 	$username_binu_murphyslaws = getenv('DB_USER');
 	$password_binu_murphyslaws = getenv('DB_PASS');
