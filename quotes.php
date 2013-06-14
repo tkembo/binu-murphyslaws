@@ -16,19 +16,14 @@ try {
 	// Construct biNu object
 	$binu_app = new biNu_app($app_config);
 	
-	$binu_app->time_to_live = 1;
+	$binu_app->time_to_live = 60;
 	
 	
 	//Define Styles
 	$binu_app->add_style( array('name' => 'header', 'color' => '#1540eb', 'size' => '20') );
 	$binu_app->add_style( array('name' => 'intro', 'color' => '#FF0000') );
 	$binu_app->add_style( array('name' => 'body_text', 'color' => '#0000FF') );
-	$binu_app->add_style( array('name' => 'footer', 'color' => '#0000FF') );
 	
-	
-	$binu_app->add_text("Murphy's Laws",'header');
-	
-	$binu_app->add_text("Select Category",'intro');
 	
 	
 	
@@ -109,16 +104,18 @@ if (isset($_GET['binu_transaction_res'])&&($_GET['binu_transaction_res']<>0))
 	 } while ($row_quoteRecordset = mysql_fetch_assoc($quoteRecordset));
 		
       
-	$binu_app->add_text('Type in the category number to see the Laws in that category', 'footer');
+	$binu_app->add_text('Options:', 'intro');
 
 	/* Process menu options */
-	$binu_app->add_menu_item( '7', 'Category Listing', "index.php"  );
+	
+	$binu_app->add_link("index.php", "Category Listing", "intro");
 	$next_page = $_GET['pageNum_quoteRecordset'] + 1;
 	if ($totalPages_quoteRecordset >= ($next_page+1)){
-		$binu_app->add_menu_item( '12', "See 10 more ".$row_categoryNameRecordset['category'], "quotes.php?pageNum_quoteRecordset=".$next_page."&id=".$_GET['id']);	
+		$binu_app->add_link("quotes.php?pageNum_quoteRecordset=".$next_page."&amp;id=".$_GET['id'], "See 10 more ".$row_categoryNameRecordset['category'], "intro");
 	}
-	$binu_app->add_menu_item( '8', 'My App Home', $binu_app->application_URL  );
-	$binu_app->add_menu_item( '9', 'biNu Home', 'http://apps.binu.net/apps/mybinu/index.php' );
+	
+	$binu_app->add_link($binu_app->application_URL , "Home", "intro");
+	$binu_app->add_link("http://apps.binu.net/apps/mybinu/index.php" , "biNu Home", "intro");
 
 	/* Show biNu page */
 	$binu_app->generate_BML();

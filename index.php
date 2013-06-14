@@ -79,13 +79,13 @@ if (isset($_GET['binu_transaction_res'])&&($_GET['binu_transaction_res']<>0))
 				$prevPage = $pageNum_categoryRecordset - 1;
 			  	if ($catIDBuffer < $totalRows_categoryRecordset)
 				{
-					$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "into");
-					$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "into");
+					$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "intro");
+					$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "intro");
 					
 				}
 				if ($catIDBuffer == $totalRows_categoryRecordset)
 					{
-						$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "into");
+						$binu_app->add_link("?pageNum_categoryRecordset=".$prevPage, "Previous Page", "intro");
 					}
 			}
 			else
@@ -93,6 +93,9 @@ if (isset($_GET['binu_transaction_res'])&&($_GET['binu_transaction_res']<>0))
 				$nextPage = $pageNum_categoryRecordset + 1;
 				$binu_app->add_link("?pageNum_categoryRecordset=".$nextPage, "Next Page", "intro");
 			}
+			
+	$binu_app->add_link($binu_app->application_URL , "Home", "intro");
+	$binu_app->add_link("http://apps.binu.net/apps/mybinu/index.php" , "biNu Home", "intro");
 			
 	/* Show biNu page */
 	$binu_app->generate_BML();
