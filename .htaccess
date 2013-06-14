@@ -1,4 +1,0 @@
-Options +FollowSymLinks
- 
-RewriteEngine On
-RewriteRule ^quotes/(([0-9]+)/([0-9]+)/$ quotes.php?pageNum_categoryRecordset=$1&id=$2
