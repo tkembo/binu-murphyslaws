@@ -6,7 +6,7 @@
 	$app_config = array (
 		'dev_id' => 17768,								// Your DevCentral developer ID goes here
 		'app_id' => 4699,								// Your DevCentral application ID goes here
-		'app_name' => 'Murphy\s Laws',				// Your application name goes here
+		'app_name' => 'Murphy\'s Laws',				// Your application name goes here
 		'app_home' => 'http://binu-murphyslaws.azurewebsites.net/',	// Publically accessible URI
 		'ttl' => 1										// Your page "time to live" parameter here
 	);
